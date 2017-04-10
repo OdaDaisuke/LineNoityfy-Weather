@@ -10,17 +10,15 @@ function sendNotify($msg = '...') {
 function getSunData() {
 
     $generateURL = function() {
-        // 任意の座標を指定
-        $lat = '35.7554';
-        $lng = '139.6512';
 
         $url = APIURL_SUN_INFO
             . '&year='. date('Y')
             . '&month=' . date('m')
             . '&day=' . date('d')
-            . '&lat=' . $lat
-            . '&lng=' . $lng;
+            . '&lat=' . LATITUDE
+            . '&lng=' . LONGITUDE;
         return $url;
+
     };
 
     $rs = simplexml_load_file($generateURL());
